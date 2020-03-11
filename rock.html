@@ -1,0 +1,57 @@
+<html>
+
+
+
+    <script>
+        function computerPlay(){
+            var outComeList =["Paper",'Scissor','Rock']
+            var outCome = outComeList[Math.round(Math.random()*2)] 
+
+            return outCome
+
+        }
+
+        function oneRound(playerSelection , computerSelection){
+            
+            var playerChoice = playerSelection.toLowerCase()
+            var computerChoice = computerSelection.toLowerCase()
+            
+            if ( playerChoice === 'paper' && computerChoice === 'rock'
+                || playerChoice === 'scissor' && computerChoice === 'paper'
+                || playerChoice === 'rock' && computerChoice === 'scissor'){
+                
+                return 'player won'
+            }  
+            else {
+                return 'computer won'
+            }
+
+                
+        }
+
+          
+
+function game(){
+    for (i = 0; i < 5; i++) {
+        
+        var person = prompt("Rock, Paper, Scissor!", "")  
+        var computer = computerPlay() 
+        
+        console.log(oneRound(person, computer))
+
+    }
+
+
+}
+
+game()     
+
+
+
+    </script>
+
+
+
+
+</html>
+
