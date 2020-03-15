@@ -1,0 +1,96 @@
+<html>
+
+    <style>
+
+        
+    
+
+    </style>
+
+    
+
+    <body>
+
+
+        <button type="button" id = 'rock'>Rock</button>
+        <button type="button" id = 'paper'>Paper</button>
+        <button type="button" id = 'scissor'>Scissor</button>
+
+        <div id = "resultDiv">
+            
+
+        </div>
+
+
+
+    </body>
+
+    <script>
+        function computerPlay(){
+            var outComeList =["Paper",'Scissor','Rock']
+            var outCome = outComeList[Math.round(Math.random()*2)] 
+
+            return outCome
+
+        }
+
+        function oneRound(playerSelection , computerSelection){
+            
+            var playerChoice = playerSelection.toLowerCase()
+            var computerChoice = computerSelection.toLowerCase()
+            if ( playerChoice === 'paper' && computerChoice === 'rock' || playerChoice === 'scissor' && computerChoice === 'paper'
+                || playerChoice === 'rock' && computerChoice === 'scissor'){
+                
+                return 'player won'
+            }  
+            else {
+                return 'computer won'
+            }
+
+        }
+
+
+        nodeList = document.querySelectorAll("button")
+
+        
+        
+        var divResult = document.getElementById('resultDiv');
+    
+        var score =0  
+        var totalGames = 0
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].addEventListener('click', function() {
+                    var result = oneRound(nodeList[i]['id'],computerPlay())
+                totalGames++
+                if (result =='player won'){
+                    console.log('hej')
+                    score++    
+                    
+
+                }
+                    divResult.innerHTML = 'Player has won ' +score+ ' of ' + totalGames
+                
+                if (score==5){
+                    divResult.innerHTML = 'Player has won'
+                    totalGames = 0 
+                    score =0
+                }
+                if (totalGames-score==5){
+                    divResult.innerHTML = 'Computer has won'  
+                    totalGames = 0 
+                    score =0
+                }
+
+
+
+            }) 
+        }
+
+
+    </script>
+
+
+
+
+</html>
+
